@@ -1,0 +1,9 @@
+Entrada: "(pCq)^~(qV(~qC(q^p)^q))"
+
+Sanitizar: "(pCq)^~(qV(~qC(q^p)^q))"
+
+Tokens: "(pCq)^~(qV(~qC(q^p)^q))" 
+    Toda análise será feita a comecar por tokens
+
+Passagem pelo klexer: 
+    "[{\"type\":\"simbol\",\"value\":\"(\"},{\"type\":\"variable\",\"value\":\"p\"},{\"type\":\"simbol\",\"value\":\"C\"},{\"type\":\"variable\",\"value\":\"q\"},{\"type\":\"simbol\",\"value\":\")\"},{\"type\":\"simbol\",\"value\":\"^\"},{\"type\":\"simbol\",\"value\":\"~\"},{\"type\":\"simbol\",\"value\":\"(\"},{\"type\":\"variable\",\"value\":\"q\"},{\"type\":\"simbol\",\"value\":\"V\"},{\"type\":\"simbol\",\"value\":\"(\"},{\"type\":\"simbol\",\"value\":\"~\"},{\"type\":\"variable\",\"value\":\"q\"},{\"type\":\"simbol\",\"value\":\"C\"},{\"type\":\"simbol\",\"value\":\"(\"},{\"type\":\"variable\",\"value\":\"q\"},{\"type\":\"simbol\",\"value\":\"^\"},{\"type\":\"variable\",\"value\":\"p\"},{\"type\":\"simbol\",\"value\":\")\"},{\"type\":\"simbol\",\"value\":\"^\"},{\"type\":\"variable\",\"value\":\"q\"},{\"type\":\"simbol\",\"value\":\")\"},{\"type\":\"simbol\",\"value\":\")\"}]"

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h4>Exemplos de proposições</h4>
+    <p> "(p->(q ^ ~p)) V p" <br>
+        "p V (~q)" <br>
+        "~(p ^ ~q)" <br>
+    </p>
+
+    <label for="">Coloque aqui sua proposição: </label>
+    <input type="text" id='proposicao' placeholder="Coloque sua prposição aqui">
+
+    <button id='solveBtn'>Resolver</button>
+    <hr>
+
+    <div style="display:flex">
+        <div>
+            <b>Etapas de Resolução</b>
+            <pre>
+        <div id = 'main'>
+            
+        </div>
+    </pre>
+        </div>
+        <div>
+            <div id="divLateral">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="compiler.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        let solveBtn = document.getElementById('solveBtn');
+        let divMain = document.getElementById('main');
+        let propsicaoel = document.getElementById('proposicao');
+
+        solveBtn.addEventListener('click', () => {
+            divMain.innerHTML = '';
+            document.getElementById('divLateral').innerHTML = "";
+            //console.log(propsicaoel.value);
+
+            // Configurar arr e arrResult antes
+
+
+
+            doLogic(propsicaoel.value)
+            document.getElementById('divLateral').innerHTML += createTableWhiteResult(arr, arrResult, propsicaoel.value);
+        })
+
+    </script>
+
+
+</body>
+
+</html>
