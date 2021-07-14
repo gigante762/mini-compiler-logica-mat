@@ -4,4 +4,6 @@ pCq^pV~qCp^q
 
 (pCq)^~(qV(~qC(q^p)^q))
 
+(pCq)^~((q^p))^(p^q)
+
 (pCq)^~(qV(~qC(q^pV~q->p)^q))
