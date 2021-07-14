@@ -11,14 +11,32 @@
 
 <body>
 
-    <h4>Exemplos de proposições</h4>
-    <p> "(p->(q ^ ~p)) V p" <br>
-        "p V (~q)" <br>
-        "~(p ^ ~q)" <br>
-    </p>
+    <div class='tips'>
+        <div>
+            <h4>Exemplos de proposições</h4>
+            <p> "(p->(q ^ ~p)) V p" <br>
+                "p V (~q)" <br>
+                "~(p ^ ~q)" <br>
+            </p>
+        </div>
+        <div>
+            <h4>
+                Operadores
+            </h4>
+            <p>~ negação</p>
+            <p>^ conjunção</p>
+            <p>V dijunção</p>
+            <p>-> condicional</p>
+            <p>
+                <-> bicondicional
+            </p>
+        </div>
+    </div>
+
+
 
     <label for="">Coloque aqui sua proposição: </label>
-    <input type="text" id='proposicao' placeholder="Coloque sua prposição aqui">
+    <input type="text" id='proposicao' placeholder="Coloque sua proposição aqui">
 
     <button id='solveBtn'>Resolver</button>
     <hr>
@@ -26,11 +44,11 @@
     <div style="display:flex">
         <div>
             <b>Etapas de Resolução</b>
-            <pre>
-        <div id = 'main'>
-            
-        </div>
-    </pre>
+
+            <div id='main'>
+
+            </div>
+
         </div>
         <div>
             <div id="divLateral">
@@ -51,14 +69,14 @@
         solveBtn.addEventListener('click', () => {
             divMain.innerHTML = '';
             document.getElementById('divLateral').innerHTML = "";
-            //console.log(propsicaoel.value);
+            let resultProp = compile(propsicaoel.value)
+            //console.log(...resultProp);
+            let t = createTable(...resultProp).replaceAll('<td>1</td>', "<td class='v'>V</td>");
+            t = t.replaceAll('<td>0</td>', "<td class='f'>F</td>");
 
-            // Configurar arr e arrResult antes
+            divMain.innerHTML = t
 
-
-
-            doLogic(propsicaoel.value)
-            document.getElementById('divLateral').innerHTML += createTableWhiteResult(arr, arrResult, propsicaoel.value);
+            //document.getElementById('divLateral').innerHTML += createTableWhiteResult(arr, arrResult, propsicaoel.value);
         })
 
     </script>

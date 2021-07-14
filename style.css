@@ -3,3 +3,34 @@ body
     background-color: #000;
     color: #fff;
 }
+
+#main{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+table tc,th{
+    padding: 10px;
+}
+
+.v{
+    color:green
+}
+
+.f{
+    color: red;
+}
+
+input {
+    width: 400px;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.tips{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}

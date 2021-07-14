@@ -1,9 +1,12 @@
 
+/* Retorna uma array com a tabela verdade e outra com o resultado da proposição, [tv,result] */
 function compile(string)
 {
     let a = string;
     a = sanitize(a);
     a = replace_tokens(a);
+
+    // Seria bom aqui verificar se tem todos os tokens corretos antes de continuar...
 
 
     // arrVariables é uma array com as variáveis na ordem em que aparecem
@@ -29,23 +32,39 @@ function compile(string)
     return [trueTable,arrResults]
 
 
-    //console.log(trueTable);
-    //console.log(arrResults);
+}
 
 
 
-    //console.log(getValueFromTrueTable(trueTable,iteration,'p'));
+function createTable(trueTable,arrResult)
+{
+    let table = "<table border=1 id='t'><thead>";
+        table += '<tr>';
+            let arrVariables = Object.keys(trueTable);
+            for (const letra of arrVariables) {
+                table += `<th>${letra}</th>`
+            }
+            table += `<th>${propsicaoel.value}</th>`
+        table += '</tr>';
+    table += '</thead>';
 
-    /* for (let letra of arrVariable) {
-        console.log();
+
+    let ar = Object.values(trueTable);
+    ar[ar.length] = arrResult;
+
+
+    
+    table += '</tbody>';
+    for (let i = 0; i < ar[0].length; i++) {
+        table += '<tr>';
+        for (let j = 0; j < ar.length; j++) {
+            table += `<td>${ar[j][i]}</td>`
+        } 
+        table += '</tr>';
     }
- */
+       
+    table += '</tbody>';
 
-    //troco as variáveis
-   /*  let b = a.replaceAll('p',1);
-    b = b.replaceAll('q',0); */
 
-    //let result  =  calcInfix(a);
-
-    //console.log(result);
+    return table;
 }

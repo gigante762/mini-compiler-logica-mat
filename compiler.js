@@ -270,10 +270,8 @@ function getVariables(expresion)
   return  Array.from(new Set(arrVariables))
 
 }
-
+/* Retorna um valor da tabela verdade com base na variavel e na teoórica linha */
 function getValueFromTrueTable(trueTable, iteration, variable)
 {
   return trueTable[variable][iteration-1];
 }
-
-/* Função que evalua uma tabela verdade junto com a expressão */
