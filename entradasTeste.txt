@@ -1,9 +1,14 @@
-q^pV~q->p^q = q^pV~qCp^q
 
-pCq^pV~qCp^q
+C = -
+B = +
+V = /
 
-(pCq)^~(qV(~qC(q^p)^q))
+q^pV~q->p^q = q^pV~q-p^q
 
-(pCq)^~((q^p))^(p^q)
+p-q^pV~q-p^q
 
-(pCq)^~(qV(~qC(q^pV~q->p)^q))
+(p-q)^~(qV(~q-(q^p)^q))
+
+(p-q)^~((q^p))^(p^q)
+
+(p-q)^~(qV(~q-(q^pV~q->p)^q))

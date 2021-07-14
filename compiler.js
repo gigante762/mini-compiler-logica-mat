@@ -19,7 +19,7 @@ function replace_tokens(string) {
 
 
 'use strict';
-/* Fonte:  https://www.npmjs.com/package/inpostfix*/
+/* Fonte:  https://www.npmjs.com/package/inpostfix/
 /**
  * Given a string, returns a number if you can. Else return what was given.
  * @param {*} s
@@ -36,10 +36,10 @@ const maybeNumber = s => {
 const NEG = '~';
 
 const OPS = new Map()
-    .set(NEG, [5, 'L', 1, a => !a]) // A unary negative symbol
+    .set(NEG, [5, 'L', 1, a => (!a) +0]) // A unary negative symbol
     //.set('^', [4, 'R', 2, (b, a) => Math.pow(a, b)])
-    .set('^', [3, 'L', 2, (b, a) =>  a && b])
-    .set('/', [3, 'L', 2, (b, a) => a || b]) // V
+    .set('^', [3, 'L', 2, (b, a) =>  (a && b)+0 ])
+    .set('/', [3, 'L', 2, (b, a) => (a || b)+0]) // V
     //.set('%', [3, 'L', 2, (b, a) => a % b])
     .set('+', [2, 'L', 2, (b, a) => (a != b) ? 0 : 1]) //B
     .set('-', [2, 'L', 2, (b, a) => (a == true && b == false) ? 0 : 1]); //C
@@ -208,6 +208,72 @@ const calcInfix = (s, lookup) => calcRPN(toRPN(s), lookup);
 
 
 
-/* Função gerador de tabela verdade */
+/* Função gerador de tabela verdade, com base na expressão dada*/
+/* Full Gambiarra Não sei como kkkk */
+function generateTrueTable(array_tokens)
+{
+  let arr= {};
+
+  //criando os objetos para arr com os letras
+  for (let i = 0; i < array_tokens.length; i++) {
+    arr[array_tokens[i]] = [];
+  }
+
+    let a = [];
+    let t = array_tokens.length;
+    let lines = 2 ** t
+
+    let state = 1;
+
+    for (let j = 0; j < t; j++) {
+        a[j] = []
+    }
+
+
+    while (state <= t) {
+        //console.log("statte", state);
+        let i = 0
+        let vorf = 1
+        while (i < lines) {
+            for (let j = 0; j < 2 ** (state - 1); j++) {
+                if (vorf) {
+                    a[state - 1].push(1)
+                    i++
+                }
+                else {
+                    a[state - 1].push(0);
+                    i++
+                }
+            }
+            vorf = (vorf) ? 0 : 1;
+
+        }
+        //console.log(a);
+
+        state++;
+    }
+
+    a.reverse();
+  for (let i = 0; i < array_tokens.length; i++) {
+    arr[array_tokens[i]] = a[i];
+  }
+    
+  return arr;
+}
+
+
+/* Return an array with variables */
+function getVariables(expresion)
+{
+  // arrVariables é uma array com as variáveis na ordem em que aparecem
+  let arrVariables = toRPN(expresion).filter((e)=>isLetter(e))
+  return  Array.from(new Set(arrVariables))
+
+}
+
+function getValueFromTrueTable(trueTable, iteration, variable)
+{
+  return trueTable[variable][iteration-1];
+}
 
 /* Função que evalua uma tabela verdade junto com a expressão */
