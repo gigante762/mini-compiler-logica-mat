@@ -39,6 +39,7 @@
     <input type="text" id='proposicao' placeholder="Coloque sua proposição aqui">
 
     <button id='solveBtn'>Resolver</button>
+    <button id='btnClear'>Limpar</button>
     <hr>
 
     <div style="display:flex">
@@ -65,9 +66,10 @@
         let solveBtn = document.getElementById('solveBtn');
         let divMain = document.getElementById('main');
         let propsicaoel = document.getElementById('proposicao');
+        let btnClear = document.getElementById('btnClear');
 
         solveBtn.addEventListener('click', () => {
-            divMain.innerHTML = '';
+
             document.getElementById('divLateral').innerHTML = "";
             let resultProp = compile(propsicaoel.value)
             if (!resultProp)
@@ -76,7 +78,12 @@
             let t = createTable(...resultProp).replaceAll('<td>1</td>', "<td class='v'>V</td>");
             t = t.replaceAll('<td>0</td>', "<td class='f'>F</td>");
 
-            divMain.innerHTML = t
+            divMain.innerHTML += t;
+
+            //document.getElementById('divLateral').innerHTML += createTableWhiteResult(arr, arrResult, propsicaoel.value);
+        })
+        btnClear.addEventListener('click', () => {
+            divMain.innerHTML = '';
 
             //document.getElementById('divLateral').innerHTML += createTableWhiteResult(arr, arrResult, propsicaoel.value);
         })

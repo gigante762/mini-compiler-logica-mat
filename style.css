@@ -1,6 +1,6 @@
 body
 {
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(26, 26, 26);
     color: #fff;
 }
 
@@ -9,8 +9,12 @@ body
     justify-content: center;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
+table{
+    margin: 10px;
+}
 table tc,th{
     padding: 10px;
 }
