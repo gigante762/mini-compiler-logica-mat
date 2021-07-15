@@ -1,8 +1,28 @@
 /* 
-   Remove os espacos em branco
+   Remove os espacos em branco e se o numero de parenteses de abertura for diferente dos que fecham retorna false
 */
 function sanitize(string) {
-    return string.replaceAll(' ', '');
+
+  let tmps = string.replaceAll(' ', '');
+  let npo = 0
+  let npc = 0
+
+  for (const l of tmps) {
+    if ( l === '(')
+      npo ++;
+    else if (l === ')')
+        npc++
+    }
+
+    if (npo === npc)
+      return tmps;
+    else
+      return false;
+
+  
+
+
+
 }
 
 /* 

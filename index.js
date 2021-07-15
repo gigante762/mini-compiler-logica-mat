@@ -4,6 +4,14 @@ function compile(string)
 {
     let a = string;
     a = sanitize(a);
+
+    if (!a)
+    {
+        alert('Algo de errado na operação, cheque os parentesis.')
+        return;
+    }
+
+   
     a = replace_tokens(a);
 
     // Seria bom aqui verificar se tem todos os tokens corretos antes de continuar...

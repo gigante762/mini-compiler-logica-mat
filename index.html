@@ -70,6 +70,8 @@
             divMain.innerHTML = '';
             document.getElementById('divLateral').innerHTML = "";
             let resultProp = compile(propsicaoel.value)
+            if (!resultProp)
+                return;
             //console.log(...resultProp);
             let t = createTable(...resultProp).replaceAll('<td>1</td>', "<td class='v'>V</td>");
             t = t.replaceAll('<td>0</td>', "<td class='f'>F</td>");
